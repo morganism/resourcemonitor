@@ -1,5 +1,6 @@
 # Resourcemonitor Rails + Next.js
 
+
 > Rails 8 API backend with Next.js 16 frontend for rich, interactive applications.
 
 **Status:** Planned
