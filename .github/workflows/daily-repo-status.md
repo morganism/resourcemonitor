@@ -18,11 +18,8 @@ network: defaults
 
 tools:
   github:
-    # If in a public repo, setting `lockdown: false` allows
-    # reading issues, pull requests and comments from 3rd-parties
-    # If in a private repo this has no particular effect.
     lockdown: false
-    min-integrity: none # This workflow is allowed to examine and comment on any issues
+    min-integrity: none
 
 safe-outputs:
   mentions: false
@@ -31,7 +28,20 @@ safe-outputs:
     title-prefix: "[repo-status] "
     labels: [report, daily-status]
     close-older-issues: true
+  report-failure-as-issue: false
+
 engine: claude
+
+rate-limit-handling:
+  max_issues: 5
+  max_commits: 8
+  max_prs: 3
+  max_discussions: 2
+  retry:
+    max_attempts: 3
+    initial_delay_ms: 15000
+    max_delay_ms: 60000
+    backoff_multiplier: 2
 
 source: githubnext/agentics/workflows/repo-status.md@df35cf29fb856d1c3b8f023ed46d19126e7813bf
 ---
@@ -55,6 +65,10 @@ Create an upbeat daily status report for the repo as a GitHub issue.
 
 ## Process
 
-1. Gather recent activity from the repository
+1. Gather recent activity from the repository (limited scope)
 2. Study the repository, its issues and its pull requests
-3. Create a new GitHub issue with your findings and insights
+3. Create a new GitHub issue with your findings
+
+## Rate Limit Optimization
+
+This workflow has been optimized to reduce API token consumption and prevent 429 errors.
