@@ -3,6 +3,12 @@ name: Auto Squash Merge Bot PRs
 on:
   pull_request_target:
     types: [opened, synchronize, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: 'Pull request number to merge'
+        required: true
+        type: string
 
 permissions:
   pull-requests: write
