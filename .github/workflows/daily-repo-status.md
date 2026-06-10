@@ -32,17 +32,6 @@ safe-outputs:
 
 engine: claude
 
-rate-limit-handling:
-  max_issues: 5
-  max_commits: 8
-  max_prs: 3
-  max_discussions: 2
-  retry:
-    max_attempts: 3
-    initial_delay_ms: 15000
-    max_delay_ms: 60000
-    backoff_multiplier: 2
-
 source: githubnext/agentics/workflows/repo-status.md@df35cf29fb856d1c3b8f023ed46d19126e7813bf
 ---
 
