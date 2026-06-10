@@ -1,22 +1,24 @@
-version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-  - package-ecosystem: "bundler"
-    directory: "/backend"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "npm"
-    directory: "/frontend"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "docker"
-    directory: "/docker"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
+- directory: /
+  ignore:
+  - dependency-name: "github/gh-aw-actions/**" # Managed by gh aw compile. Version-locked to the gh-aw compiler; do not bump.
+  open-pull-requests-limit: 5
+  package-ecosystem: github-actions
+  schedule:
+    interval: weekly
+- directory: /backend
+  open-pull-requests-limit: 10
+  package-ecosystem: bundler
+  schedule:
+    interval: weekly
+- directory: /frontend
+  open-pull-requests-limit: 10
+  package-ecosystem: npm
+  schedule:
+    interval: weekly
+- directory: /docker
+  open-pull-requests-limit: 5
+  package-ecosystem: docker
+  schedule:
+    interval: weekly
+version: 2
