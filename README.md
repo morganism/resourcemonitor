@@ -1,5 +1,7 @@
 # Resourcemonitor Rails + Next.js
 
+[![Auto Squash Merge Bot PRs](https://github.com/morganism/resourcemonitor/actions/workflows/auto-squash-merge-bot-prs.yml/badge.svg)](https://github.com/morganism/resourcemonitor/actions/workflows/auto-squash-merge-bot-prs.yml)
+
 
 > Rails 8 API backend with Next.js 16 frontend for rich, interactive applications.
 
